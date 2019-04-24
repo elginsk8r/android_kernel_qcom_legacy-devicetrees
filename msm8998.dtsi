@@ -10,7 +10,6 @@
  * GNU General Public License for more details.
  */
 
-#include "skeleton64.dtsi"
 #include <dt-bindings/clock/qcom,cpu-osm.h>
 #include <dt-bindings/clock/qcom,gcc-msm8998.h>
 #include <dt-bindings/clock/qcom,gpucc-msm8998.h>
@@ -29,6 +28,10 @@
 	compatible = "qcom,msm8998";
 	qcom,msm-id = <292 0x0>;
 	interrupt-parent = <&wakegic>;
+
+	#address-cells = <2>;
+	#size-cells = <2>;
+	memory { device_type = "memory"; reg = <0 0 0 0>; };
 
 	aliases {
 		serial0 = &uartblsp2dm1;
