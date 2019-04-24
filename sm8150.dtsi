@@ -10,7 +10,6 @@
  * GNU General Public License for more details.
  */
 
-#include "skeleton64.dtsi"
 #include <dt-bindings/clock/qcom,gcc-sm8150.h>
 #include <dt-bindings/clock/qcom,camcc-sm8150.h>
 #include <dt-bindings/clock/qcom,dispcc-sm8150.h>
@@ -38,6 +37,10 @@
 	qcom,msm-name = "SM8150 V1";
 	qcom,msm-id = <339 0x10000>;
 	interrupt-parent = <&intc>;
+
+	#address-cells = <2>;
+	#size-cells = <2>;
+	memory { device_type = "memory"; reg = <0 0 0 0>; };
 
 	mem-offline {
 		compatible = "qcom,mem-offline";

@@ -10,7 +10,6 @@
  * GNU General Public License for more details.
  */
 
-#include "skeleton64.dtsi"
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/clock/qcom,gcc-sdm845.h>
 #include <dt-bindings/clock/qcom,camcc-sdm845.h>
@@ -30,6 +29,10 @@
 	compatible = "qcom,sdm670";
 	qcom,msm-id = <336 0x0>;
 	interrupt-parent = <&pdc>;
+
+	#address-cells = <2>;
+	#size-cells = <2>;
+	memory { device_type = "memory"; reg = <0 0 0 0>; };
 
 	aliases {
 		ufshc1 = &ufshc_mem; /* Embedded UFS slot */
