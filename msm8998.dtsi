@@ -2203,6 +2203,7 @@
 		memory-region = <&modem_mem>;
 		qcom,mem-protect-id = <0xF>;
 		qcom,mas-crypto = <&mas_crypto_c0>;
+		qcom,serial-loading;
 
 		/* GPIO inputs from mss */
 		interrupts-extended = <&intc 0 448 1>,
