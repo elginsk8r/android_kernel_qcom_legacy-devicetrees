@@ -1486,6 +1486,7 @@
 		compatible = "qcom,msm-adsprpc-mem-region";
 		memory-region = <&adsp_mem>;
 		qcom,vmid-ssc-q6 = <38>;
+		restrict-access;
 	};
 
 	qcom,msm_fastrpc {
