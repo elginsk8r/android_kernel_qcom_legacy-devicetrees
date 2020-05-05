@@ -10,6 +10,8 @@
 		reg = <0x17d78800 0x1000>,
 			<0x17d43000 0x1000>;
 		#thermal-sensor-cells = <0>;
+		qcom,plat-mitigation-disable;
+		qcom,legacy-lmh-enable;
 	};
 
 	lmh_dcvs1: qcom,limits-dcvs@1 {
@@ -19,6 +21,8 @@
 		reg = <0x17d70800 0x1000>,
 			<0x17d45800 0x1000>;
 		#thermal-sensor-cells = <0>;
+		qcom,plat-mitigation-disable;
+		qcom,legacy-lmh-enable;
 	};
 };
 
