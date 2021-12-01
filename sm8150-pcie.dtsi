@@ -40,11 +40,11 @@
 				"int_d";
 		#interrupt-cells = <1>;
 		interrupt-map-mask = <0 0 0 0xffffffff>;
-		interrupt-map = < 0 0 0 0 &intc 0 140 0
-				0 0 0 1 &intc 0 149 0
-				0 0 0 2 &intc 0 150 0
-				0 0 0 3 &intc 0 151 0
-				0 0 0 4 &intc 0 152 0>;
+		interrupt-map = < 0 0 0 0 &intc GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 1 &intc GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 2 &intc GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 3 &intc GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 4 &intc GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
 
 		qcom,phy-sequence = <0x0840 0x03 0x0
 				0x0094 0x08 0x0
@@ -313,11 +313,11 @@
 				"int_d";
 		#interrupt-cells = <1>;
 		interrupt-map-mask = <0 0 0 0xffffffff>;
-		interrupt-map = <0 0 0 0 &intc 0 306 0
-				0 0 0 1 &intc 0 434 0
-				0 0 0 2 &intc 0 435 0
-				0 0 0 3 &intc 0 438 0
-				0 0 0 4 &intc 0 439 0>;
+		interrupt-map = <0 0 0 0 &intc GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 1 &intc GIC_SPI 434 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 2 &intc GIC_SPI 435 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 3 &intc GIC_SPI 438 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 4 &intc GIC_SPI 439 IRQ_TYPE_LEVEL_HIGH>;
 
 		qcom,phy-sequence = <0x0a40 0x03 0x0
 				0x0010 0x00 0x0
@@ -821,7 +821,7 @@
 		qcom,use-pcie-edma;
 		dmas = <&pcie1_edma 0 0>, <&pcie1_edma 1 0>;
 		dma-names = "tx", "rx";
-		interrupts = <0 440 0>;
+		interrupts = <GIC_SPI 440 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "mhi-device-inta";
 		qcom,mhi-ifc-id = <0x010817cb>;
 		qcom,mhi-interrupt;
