@@ -471,7 +471,7 @@
 		#redistributor-regions = <1>;
 		redistributor-stride = <0x0 0x20000>;
 		interrupts = <1 9 4>;
-		arm,qgicv3-plat-sdm660-quirks;
+		arm,qgicv3-plat-msm8998-quirks;
 
 		gic-its@0x17a20000{
 			compatible = "arm,gic-v3-its";
@@ -2147,6 +2147,7 @@
 		interrupt-controller;
 		interrupt-parent = <&intc>;
 		#interrupt-cells = <3>;
+		qcom,mpm-irq-enabled-by-firmware;
 	};
 
 	wakegpio: wake-gpio {
@@ -2154,6 +2155,7 @@
 		interrupt-controller;
 		interrupt-parent = <&intc>;
 		#interrupt-cells = <2>;
+		qcom,mpm-gpio-irq-enabled-by-firmware;
 	};
 
 	qcom,memshare {
