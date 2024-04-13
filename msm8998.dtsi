@@ -1831,7 +1831,7 @@
 			<&clock_gcc GCC_USB30_MOCK_UTMI_CLK>,
 			<&clock_gcc GCC_USB30_SLEEP_CLK>,
 			<&clock_gcc GCC_USB_PHY_CFG_AHB2PHY_CLK>,
-			<&clock_rpmcc CXO_SMD_DWC3_CLK>;
+			<&clock_rpmcc CXO_DWC3_CLK>;
 
 		clock-names = "core_clk", "iface_clk", "bus_aggr_clk",
 				"utmi_clk", "sleep_clk", "cfg_ahb_clk", "xo";
@@ -2688,7 +2688,7 @@
 		clocks = <&clock_mmss MMSS_VIDEO_CORE_CLK>,
 			 <&clock_mmss MMSS_MNOC_AHB_CLK>,
 			 <&clock_mmss MMSS_VIDEO_AHB_CLK>,
-			 <&clock_rpmcc MMSSNOC_AXI_CLK>,
+			 <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			 <&clock_mmss MMSS_VIDEO_AXI_CLK>,
 			 <&clock_mmss MMSS_VIDEO_MAXI_CLK>;
 		clock-names = "core_clk", "mnoc_ahb_clk", "iface_clk",
