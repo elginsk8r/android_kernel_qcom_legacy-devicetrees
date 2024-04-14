@@ -21,6 +21,9 @@
 #include <dt-bindings/msm/msm-bus-ids.h>
 #include <dt-bindings/regulator/qcom,rpm-smd-regulator.h>
 
+#define MHZ_TO_MBPS(mhz, w) ((mhz * 1000000 * w) / (1024 * 1024))
+#define BW_OPP_ENTRY(mhz, w) opp-mhz {opp-hz = /bits/ 64 <MHZ_TO_MBPS(mhz, w)>;}
+
 / {
 	model = "Qualcomm Technologies, Inc. MSM 8998";
 	compatible = "qcom,msm8998";
@@ -596,100 +599,78 @@
 		};
 	};
 
-	cpubw: qcom,cpubw {
+	generic_bw_opp_table: generic_bw_opp_table {
+		compatible = "operating-points-v2";
+		BW_OPP_ENTRY( 100,  8);	/* 762 MB/s */
+		BW_OPP_ENTRY( 150,  8);	/* 1144 MB/s */
+		BW_OPP_ENTRY( 200,  8);	/* 1525 MB/s */
+		BW_OPP_ENTRY( 300,  8);	/* 2288 MB/s */
+		BW_OPP_ENTRY( 412,  8);	/* 3143 MB/s */
+		BW_OPP_ENTRY( 547,  8);	/* 4173 MB/s */
+		BW_OPP_ENTRY( 681,  8);	/* 5195 MB/s */
+		BW_OPP_ENTRY( 768,  8);	/* 5859 MB/s */
+		BW_OPP_ENTRY( 1017, 8);	/* 7759 MB/s */
+		BW_OPP_ENTRY( 1296, 8);	/* 9987 MB/s */
+		BW_OPP_ENTRY( 1555, 8);	/* 11863 MB/s */
+		BW_OPP_ENTRY( 1804, 8);	/* 13763 MB/s */
+	};
+
+	cpu_cpu_ddr_bw: qcom,cpu-cpu-ddr-bw {
 		compatible = "qcom,devbw";
 		governor = "performance";
 		qcom,src-dst-ports = <1 512>;
 		qcom,active-only;
-		qcom,bw-tbl =
-			<   762 /*  100 MHz */ >,
-			<  1144 /*  150 MHz */ >,
-			<  1525 /*  200 MHz */ >,
-			<  2288 /*  300 MHz */ >,
-			<  3143 /*  412 MHz */ >,
-			<  4173 /*  547 MHz */ >,
-			<  5195 /*  681 MHz */ >,
-			<  5859 /*  768 MHz */ >,
-			<  7759 /* 1017 MHz */ >,
-			<  9887 /* 1296 MHz */ >,
-			< 11863 /* 1555 MHz */ >,
-			< 13763 /* 1804 MHz */ >;
+		operating-points-v2 = <&generic_bw_opp_table>;
 	};
 
-	bwmon: qcom,cpu-bwmon {
+	cpu_cpu_ddr_bwmon: qcom,cpu-cpu-ddr-bwmon@01008000 {
 		compatible = "qcom,bimc-bwmon3";
 		reg = <0x01008000 0x300>, <0x01001000 0x200>;
 		reg-names = "base", "global_base";
 		interrupts = <0 183 4>;
 		qcom,mport = <0>;
-		qcom,target-dev = <&cpubw>;
+		qcom,target-dev = <&cpu_cpu_ddr_bw>;
+		qcom,count-unit = <0x10000>;
 	};
 
-	mincpubw: qcom,mincpubw {
+	cpu0_cpu_ddr_latfloor: qcom,cpu0-cpu-ddr-latfloor {
 		compatible = "qcom,devbw";
 		governor = "powersave";
 		qcom,src-dst-ports = <1 512>;
 		qcom,active-only;
-		qcom,bw-tbl =
-			<   762 /*  100 MHz */ >,
-			<  1144 /*  150 MHz */ >,
-			<  1525 /*  200 MHz */ >,
-			<  2288 /*  300 MHz */ >,
-			<  3143 /*  412 MHz */ >,
-			<  4173 /*  547 MHz */ >,
-			<  5195 /*  681 MHz */ >,
-			<  5859 /*  768 MHz */ >,
-			<  7759 /* 1017 MHz */ >,
-			<  9887 /* 1296 MHz */ >,
-			< 11863 /* 1555 MHz */ >,
-			< 13763 /* 1804 MHz */ >;
+		operating-points-v2 = <&generic_bw_opp_table>;
 	};
 
-	memlat_cpu0: qcom,memlat-cpu0 {
+	cpu4_cpu_ddr_latfloor: qcom,cpu4-cpu-ddr-latfloor {
 		compatible = "qcom,devbw";
 		governor = "powersave";
 		qcom,src-dst-ports = <1 512>;
 		qcom,active-only;
-		qcom,bw-tbl =
-			<   762 /*  100 MHz */ >,
-			<  1144 /*  150 MHz */ >,
-			<  1525 /*  200 MHz */ >,
-			<  2288 /*  300 MHz */ >,
-			<  3143 /*  412 MHz */ >,
-			<  4173 /*  547 MHz */ >,
-			<  5195 /*  681 MHz */ >,
-			<  5859 /*  768 MHz */ >,
-			<  7759 /* 1017 MHz */ >,
-			<  9887 /* 1296 MHz */ >,
-			< 11863 /* 1555 MHz */ >,
-			< 13763 /* 1804 MHz */ >;
+		operating-points-v2 = <&generic_bw_opp_table>;
 	};
 
-	memlat_cpu4: qcom,memlat-cpu4 {
+	cpu0_cpu_ddr_lat: qcom,cpu0-cpu-ddr-lat {
 		compatible = "qcom,devbw";
 		governor = "powersave";
 		qcom,src-dst-ports = <1 512>;
 		qcom,active-only;
 		status = "ok";
-		qcom,bw-tbl =
-			<   762 /*  100 MHz */ >,
-			<  1144 /*  150 MHz */ >,
-			<  1525 /*  200 MHz */ >,
-			<  2288 /*  300 MHz */ >,
-			<  3143 /*  412 MHz */ >,
-			<  4173 /*  547 MHz */ >,
-			<  5195 /*  681 MHz */ >,
-			<  5859 /*  768 MHz */ >,
-			<  7759 /* 1017 MHz */ >,
-			<  9887 /* 1296 MHz */ >,
-			< 11863 /* 1555 MHz */ >,
-			< 13763 /* 1804 MHz */ >;
+		operating-points-v2 = <&generic_bw_opp_table>;
 	};
 
-	devfreq_memlat_0: qcom,arm-memlat-mon-0 {
+	cpu4_cpu_ddr_lat: qcom,cpu4-cpu-ddr-lat {
+		compatible = "qcom,devbw";
+		governor = "powersave";
+		qcom,src-dst-ports =
+			<MSM_BUS_MASTER_AMPSS_M0 MSM_BUS_SLAVE_EBI_CH0>;
+		qcom,active-only;
+		operating-points-v2 = <&generic_bw_opp_table>;
+	};
+
+	cpu0_cpu_ddr_latmon: qcom,cpu0-cpu-ddr-latmon {
 		compatible = "qcom,arm-memlat-mon";
 		qcom,cpulist =	<&CPU0 &CPU1 &CPU2 &CPU3>;
-		qcom,target-dev = <&memlat_cpu0>;
+		qcom,target-dev = <&cpu0_cpu_ddr_lat>;
 		qcom,core-dev-table =
 			<  300000 1525 >,
 			<  499200 3143 >,
@@ -697,10 +678,10 @@
 			< 1881600 5859 >;
 	};
 
-	devfreq_memlat_4: qcom,arm-memlat-mon-4 {
+	cpu4_cpu_ddr_latmon: qcom,cpu4-cpu-ddr-latmon {
 		compatible = "qcom,arm-memlat-mon";
 		qcom,cpulist =	<&CPU4 &CPU5 &CPU6 &CPU7>;
-		qcom,target-dev = <&memlat_cpu4>;
+		qcom,target-dev = <&cpu4_cpu_ddr_lat>;
 		qcom,core-dev-table =
 			<  300000  1525 >,
 			<  480000  3143 >,
@@ -711,15 +692,21 @@
 			< 1804000 13763 >;
 	};
 
-	devfreq_cpufreq: devfreq-cpufreq {
-		mincpubw-cpufreq {
-			target-dev = <&mincpubw>;
-			cpu-to-dev-map-0 =
+	cpu0_computemon: qcom,cpu0-computemon {
+		compatible = "qcom,arm-cpu-mon";
+		qcom,cpulist = <&CPU0 &CPU1 &CPU2 &CPU3>;
+		qcom,target-dev = <&cpu0_cpu_ddr_latfloor>;
+		qcom,core-dev-table =
 				< 1881600 1525 >;
-			cpu-to-dev-map-4 =
+	};
+
+	cpu4_computemon: qcom,cpu4-computemon {
+		compatible = "qcom,arm-cpu-mon";
+		qcom,cpulist = <&CPU4 &CPU5 &CPU6 &CPU7>;
+		qcom,target-dev = <&cpu4_cpu_ddr_latfloor>;
+		qcom,core-dev-table =
 				< 2016000 1525 >,
 				< 2092800 5195 >;
-		};
 	};
 
 	msm_cpufreq: qcom,msm-cpufreq {
