@@ -2113,25 +2113,27 @@
 
 	tsens0: tsens@10aa000 {
 		compatible = "qcom,msm8998-tsens";
-		reg = <0x10aa000 0x2000>;
-		reg-names = "tsens_physical";
+		reg = <0x10aa000 0x1000>,
+		      <0x10ab000 0x1000>;
+		reg-names = "tsens_srot_physical",
+			    "tsens_tm_physical";
 		interrupts = <0 458 0>, <0 445 0>;
 		interrupt-names = "tsens-upper-lower", "tsens-critical";
-		qcom,client-id = <0 1 2 3 4 7 8 9 10 11 12 13>;
-		qcom,sensor-id = <0 1 2 3 4 7 8 9 10 11 12 13>;
-		qcom,sensors = <12>;
+		#thermal-sensor-cells = <1>;
 	};
 
 	tsens1: tsens@10ad000 {
 		compatible = "qcom,msm8998-tsens";
-		reg = <0x10ad000 0x2000>;
-		reg-names = "tsens_physical";
+		reg = <0x10ad000 0x1000>,
+		      <0x10ae000 0x1000>;
+		reg-names = "tsens_srot_physical",
+			    "tsens_tm_physical";
 		interrupts = <0 184 0>, <0 430 0>;
 		interrupt-names = "tsens-upper-lower", "tsens-critical";
-		qcom,client-id = <14 15 16 17 18 19 20 21>;
-		qcom,sensor-id = <0 1 3 4 5 6 7 2>;
-		qcom,sensors = <8>;
+		#thermal-sensor-cells = <1>;
 	};
+
+	thermal_zones: thermal-zones { };
 
 	qcom,qbt1000 {
 		compatible = "qcom,qbt1000";
@@ -2919,30 +2921,6 @@
 	};
 };
 
-&clock_cpu {
-	#address-cells = <1>;
-	#size-cells = <1>;
-	lmh_dcvs0: qcom,limits-dcvs@17d78800 {
-		compatible = "qcom,msm-hw-limits";
-		interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
-		qcom,affinity = <0>;
-		reg = <0x17d78800 0x1000>,
-			<0x17d43000 0x1000>;
-		qcom,plat-mitigation-disable;
-		#thermal-sensor-cells = <0>;
-	};
-
-	lmh_dcvs1: qcom,limits-dcvs@0x17d70800 {
-		compatible = "qcom,msm-hw-limits";
-		interrupts = <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>;
-		qcom,affinity = <1>;
-		reg = <0x17d70800 0x1000>,
-			<0x17d45800 0x1000>;
-		qcom,plat-mitigation-disable;
-		#thermal-sensor-cells = <0>;
-	};
-};
-
 &gdsc_usb30 {
 	status = "ok";
 };
@@ -3046,6 +3024,7 @@
 #include "msm8998-blsp.dtsi"
 #include "msm8998-audio.dtsi"
 #include "msm-smb138x.dtsi"
+#include "msm8998-thermal.dtsi"
 
 &pmi8998_pdphy {
 	vbus-supply = <&smb2_vbus>;
