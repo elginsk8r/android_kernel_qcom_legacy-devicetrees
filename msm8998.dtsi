@@ -51,7 +51,6 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x0>;
-			qcom,limits-info = <&mitigation_profile0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
 			enable-method = "psci";
 			efficiency = <1024>;
@@ -79,7 +78,6 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x1>;
-			qcom,limits-info = <&mitigation_profile1>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
 			enable-method = "psci";
 			efficiency = <1024>;
@@ -102,7 +100,6 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x2>;
-			qcom,limits-info = <&mitigation_profile2>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
 			enable-method = "psci";
 			efficiency = <1024>;
@@ -125,7 +122,6 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x3>;
-			qcom,limits-info = <&mitigation_profile3>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
 			enable-method = "psci";
 			efficiency = <1024>;
@@ -148,7 +144,6 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x100>;
-			qcom,limits-info = <&mitigation_profile4>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
 			enable-method = "psci";
 			efficiency = <1536>;
@@ -175,7 +170,6 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x101>;
-			qcom,limits-info = <&mitigation_profile5>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
 			enable-method = "psci";
 			efficiency = <1536>;
@@ -198,7 +192,6 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x102>;
-			qcom,limits-info = <&mitigation_profile6>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
 			enable-method = "psci";
 			efficiency = <1536>;
@@ -221,7 +214,6 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x103>;
-			qcom,limits-info = <&mitigation_profile7>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
 			enable-method = "psci";
 			efficiency = <1536>;
@@ -3230,14 +3222,26 @@
 };
 
 &clock_cpu {
-	lmh_dcvs0: qcom,limits-dcvs@0 {
+	#address-cells = <1>;
+	#size-cells = <1>;
+	lmh_dcvs0: qcom,limits-dcvs@17d78800 {
 		compatible = "qcom,msm-hw-limits";
 		interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
+		qcom,affinity = <0>;
+		reg = <0x17d78800 0x1000>,
+			<0x17d43000 0x1000>;
+		qcom,plat-mitigation-disable;
+		#thermal-sensor-cells = <0>;
 	};
 
-	lmh_dcvs1: qcom,limits-dcvs@1 {
+	lmh_dcvs1: qcom,limits-dcvs@0x17d70800 {
 		compatible = "qcom,msm-hw-limits";
 		interrupts = <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>;
+		qcom,affinity = <1>;
+		reg = <0x17d70800 0x1000>,
+			<0x17d45800 0x1000>;
+		qcom,plat-mitigation-disable;
+		#thermal-sensor-cells = <0>;
 	};
 };
 
