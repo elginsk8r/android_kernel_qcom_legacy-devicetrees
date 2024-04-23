@@ -71,10 +71,6 @@
 	status = "ok";
 };
 
-&ufs_ice {
-	status = "ok";
-};
-
 &sdhc_2 {
 	vdd-supply = <&pm8998_l21>;
 	qcom,vdd-voltage-level = <2950000 2960000>;
