@@ -22,6 +22,9 @@
 		interrupts = <0 83 0>;
 		interrupt-controller;
 		#interrupt-cells = <1>;
+
+		#list-cells = <1>;
+
 		vdd-supply = <&gdsc_mdss>;
 		gdsc-core-supply = <&gdsc_bimc_smmu>;
 
@@ -582,6 +585,8 @@
 		reg-names = "mdp_phys",
 			"rot_vbif_phys";
 
+		#list-cells = <1>;
+
 		qcom,mdss-rot-mode = <1>;
 		qcom,mdss-highest-bank-bit = <0x2>;
 
@@ -608,6 +613,8 @@
 
 		interrupt-parent = <&mdss_mdp>;
 		interrupts = <2 0>;
+
+		qcom,mdss-rot-parent = <&mdss_mdp 0>;
 
 		/* VBIF QoS remapper settings*/
 		qcom,mdss-rot-vbif-qos-setting = <1 1 1 1>;
