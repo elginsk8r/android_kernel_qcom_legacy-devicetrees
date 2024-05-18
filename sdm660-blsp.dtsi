@@ -1,15 +1,3 @@
-/*
- * Copyright (c) 2016-2018, The Linux Foundation. All rights reserved.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 and
- * only version 2 as published by the Free Software Foundation.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- */
 #include "sdm660-pinctrl.dtsi"
 
 / {
@@ -42,7 +30,7 @@
 		reg = <0xc175000  0x600>;
 		reg-names = "qup_phys_addr";
 		interrupt-names = "qup_irq";
-		interrupts = <0 95 0>;
+		interrupts = <0 95 IRQ_TYPE_LEVEL_HIGH>;
 		dmas = <&dma_blsp1 4 64 0x20000020 0x20>,
 			<&dma_blsp1 5 32 0x20000020 0x20>;
 		dma-names = "tx", "rx";
@@ -68,7 +56,7 @@
 		reg = <0xc176000  0x600>;
 		reg-names = "qup_phys_addr";
 		interrupt-names = "qup_irq";
-		interrupts = <0 96 0>;
+		interrupts = <0 96 IRQ_TYPE_LEVEL_HIGH>;
 		dmas = <&dma_blsp1 6 64 0x20000020 0x20>,
 			<&dma_blsp1 7 32 0x20000020 0x20>;
 		dma-names = "tx", "rx";
@@ -94,7 +82,7 @@
 		reg = <0xc177000  0x600>;
 		reg-names = "qup_phys_addr";
 		interrupt-names = "qup_irq";
-		interrupts = <0 97 0>;
+		interrupts = <0 97 IRQ_TYPE_LEVEL_HIGH>;
 		dmas = <&dma_blsp1 8 64 0x20000020 0x20>,
 			<&dma_blsp1 9 32 0x20000020 0x20>;
 		dma-names = "tx", "rx";
@@ -120,7 +108,7 @@
 		reg = <0xc178000  0x600>;
 		reg-names = "qup_phys_addr";
 		interrupt-names = "qup_irq";
-		interrupts = <0 98 0>;
+		interrupts = <0 98 IRQ_TYPE_LEVEL_HIGH>;
 		dmas = <&dma_blsp1 10 64 0x20000020 0x20>,
 			<&dma_blsp1 11 32 0x20000020 0x20>;
 		dma-names = "tx", "rx";
@@ -146,7 +134,7 @@
 		reg = <0xc1b5000  0x600>;
 		reg-names = "qup_phys_addr";
 		interrupt-names = "qup_irq";
-		interrupts = <0 101 0>;
+		interrupts = <0 101 IRQ_TYPE_LEVEL_HIGH>;
 		dmas = <&dma_blsp2 4 64 0x20000020 0x20>,
 			<&dma_blsp2 5 32 0x20000020 0x20>;
 		dma-names = "tx", "rx";
@@ -172,7 +160,7 @@
 		reg = <0xc1b6000  0x600>;
 		reg-names = "qup_phys_addr";
 		interrupt-names = "qup_irq";
-		interrupts = <0 102 0>;
+		interrupts = <0 102 IRQ_TYPE_LEVEL_HIGH>;
 		dmas = <&dma_blsp2 6 64 0x20000020 0x20>,
 			<&dma_blsp2 7 32 0x20000020 0x20>;
 		dma-names = "tx", "rx";
@@ -198,7 +186,7 @@
 		reg = <0xc1b7000  0x600>;
 		reg-names = "qup_phys_addr";
 		interrupt-names = "qup_irq";
-		interrupts = <0 103 0>;
+		interrupts = <0 103 IRQ_TYPE_LEVEL_HIGH>;
 		dmas = <&dma_blsp2 8 64 0x20000020 0x20>,
 			<&dma_blsp2 9 32 0x20000020 0x20>;
 		dma-names = "tx", "rx";
@@ -224,7 +212,7 @@
 		reg = <0xc1b8000  0x600>;
 		reg-names = "qup_phys_addr";
 		interrupt-names = "qup_irq";
-		interrupts = <0 104 0>;
+		interrupts = <0 104 IRQ_TYPE_LEVEL_HIGH>;
 		dmas = <&dma_blsp2 10 64 0x20000020 0x20>,
 			<&dma_blsp2 11 32 0x20000020 0x20>;
 		dma-names = "tx", "rx";
@@ -251,7 +239,7 @@
 		reg = <0xc175000 0x600>,
 		      <0xc144000 0x1f000>;
 		interrupt-names = "spi_irq", "spi_bam_irq";
-		interrupts = <0 95 0>, <0 238 0>;
+		interrupts = <0 95 IRQ_TYPE_LEVEL_HIGH>, <0 238 IRQ_TYPE_LEVEL_HIGH>;
 		spi-max-frequency = <50000000>;
 		qcom,use-bam;
 		qcom,ver-reg-exists;
@@ -276,7 +264,7 @@
 		reg = <0xc176000 0x600>,
 		      <0xc144000 0x1f000>;
 		interrupt-names = "spi_irq", "spi_bam_irq";
-		interrupts = <0 96 0>, <0 238 0>;
+		interrupts = <0 96 IRQ_TYPE_LEVEL_HIGH>, <0 238 IRQ_TYPE_LEVEL_HIGH>;
 		spi-max-frequency = <50000000>;
 		qcom,use-bam;
 		qcom,ver-reg-exists;
@@ -301,7 +289,7 @@
 		reg = <0xc177000 0x600>,
 		      <0xc144000 0x1f000>;
 		interrupt-names = "spi_irq", "spi_bam_irq";
-		interrupts = <0 97 0>, <0 238 0>;
+		interrupts = <0 97 IRQ_TYPE_LEVEL_HIGH>, <0 238 IRQ_TYPE_LEVEL_HIGH>;
 		spi-max-frequency = <50000000>;
 		qcom,use-bam;
 		qcom,ver-reg-exists;
@@ -326,7 +314,7 @@
 		reg = <0xc178000 0x600>,
 		      <0xc144000 0x1f000>;
 		interrupt-names = "spi_irq", "spi_bam_irq";
-		interrupts = <0 98 0>, <0 238 0>;
+		interrupts = <0 98 IRQ_TYPE_LEVEL_HIGH>, <0 238 IRQ_TYPE_LEVEL_HIGH>;
 		spi-max-frequency = <50000000>;
 		qcom,use-bam;
 		qcom,ver-reg-exists;
@@ -351,7 +339,7 @@
 		reg = <0xc1b5000 0x600>,
 		      <0xc184000 0x1f000>;
 		interrupt-names = "spi_irq", "spi_bam_irq";
-		interrupts = <0 101 0>, <0 239 0>;
+		interrupts = <0 101 IRQ_TYPE_LEVEL_HIGH>, <0 239 IRQ_TYPE_LEVEL_HIGH>;
 		spi-max-frequency = <50000000>;
 		qcom,use-bam;
 		qcom,ver-reg-exists;
@@ -376,7 +364,7 @@
 		reg = <0xc1b6000 0x600>,
 		      <0xc184000 0x1f000>;
 		interrupt-names = "spi_irq", "spi_bam_irq";
-		interrupts = <0 102 0>, <0 239 0>;
+		interrupts = <0 102 IRQ_TYPE_LEVEL_HIGH>, <0 239 IRQ_TYPE_LEVEL_HIGH>;
 		spi-max-frequency = <50000000>;
 		qcom,use-bam;
 		qcom,ver-reg-exists;
@@ -401,7 +389,7 @@
 		reg = <0xc1b7000 0x600>,
 		      <0xc184000 0x1f000>;
 		interrupt-names = "spi_irq", "spi_bam_irq";
-		interrupts = <0 103 0>, <0 239 0>;
+		interrupts = <0 103 IRQ_TYPE_LEVEL_HIGH>, <0 239 IRQ_TYPE_LEVEL_HIGH>;
 		spi-max-frequency = <50000000>;
 		qcom,use-bam;
 		qcom,ver-reg-exists;
@@ -426,7 +414,7 @@
 		reg = <0xc1b8000 0x600>,
 		      <0xc184000 0x1f000>;
 		interrupt-names = "spi_irq", "spi_bam_irq";
-		interrupts = <0 104 0>, <0 239 0>;
+		interrupts = <0 104 IRQ_TYPE_LEVEL_HIGH>, <0 239 IRQ_TYPE_LEVEL_HIGH>;
 		spi-max-frequency = <50000000>;
 		qcom,use-bam;
 		qcom,ver-reg-exists;

@@ -1,15 +1,3 @@
-/* Copyright (c) 2016-2017, The Linux Foundation. All rights reserved.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 and
- * only version 2 as published by the Free Software Foundation.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- */
-
 &rpm_bus {
 	rpm-regulator-smpb1 {
 		compatible = "qcom,rpm-smd-regulator-resource";
@@ -76,6 +64,7 @@
 		qcom,resource-name = "ldob";
 		qcom,resource-id = <1>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l1 {
@@ -91,6 +80,7 @@
 		qcom,resource-name = "ldob";
 		qcom,resource-id = <2>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l2 {
@@ -106,6 +96,7 @@
 		qcom,resource-name = "ldob";
 		qcom,resource-id = <3>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l3 {
@@ -121,6 +112,7 @@
 		qcom,resource-name = "ldob";
 		qcom,resource-id = <4>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l4 {
@@ -136,6 +128,7 @@
 		qcom,resource-name = "ldob";
 		qcom,resource-id = <5>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l5 {
@@ -151,6 +144,7 @@
 		qcom,resource-name = "ldob";
 		qcom,resource-id = <6>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l6 {
@@ -166,6 +160,7 @@
 		qcom,resource-name = "ldob";
 		qcom,resource-id = <7>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l7 {
@@ -181,6 +176,7 @@
 		qcom,resource-name = "ldob";
 		qcom,resource-id = <8>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l8 {
@@ -196,6 +192,7 @@
 		qcom,resource-name = "rwlc";
 		qcom,resource-id = <0>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l9 {
@@ -211,6 +208,7 @@
 		qcom,resource-name = "rwlm";
 		qcom,resource-id = <0>;
 		qcom,regulator-type = <0>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-l10 {
@@ -226,6 +224,7 @@
 		qcom,resource-name = "bobb";
 		qcom,resource-id = <1>;
 		qcom,regulator-type = <4>;
+		qcom,regulator-hw-type = "pmic4-ldo";
 		status = "disabled";
 
 		regulator-bob {

@@ -1,16 +1,3 @@
-/*
- * Copyright (c) 2016-2017, The Linux Foundation. All rights reserved.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 and
- * only version 2 as published by the Free Software Foundation.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- */
-
 &soc {
 	qcom,msm-cam@ca00000 {
 		compatible = "qcom,msm-cam";
@@ -28,12 +15,12 @@
 		reg = <0xc824000 0x1000>,
 				<0xca00120 0x4>;
 		reg-names = "csiphy", "csiphy_clk_mux";
-		interrupts = <0 78 0>;
+		interrupts = <0 78 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "csiphy";
 		gdscr-supply = <&gdsc_camss_top>;
 		bimc_smmu-supply = <&gdsc_bimc_smmu>;
 		qcom,cam-vreg-name = "gdscr", "bimc_smmu";
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -66,12 +53,12 @@
 		reg = <0xc825000 0x1000>,
 				<0xca00124 0x4>;
 		reg-names = "csiphy", "csiphy_clk_mux";
-		interrupts = <0 79 0>;
+		interrupts = <0 79 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "csiphy";
 		gdscr-supply = <&gdsc_camss_top>;
 		bimc_smmu-supply = <&gdsc_bimc_smmu>;
 		qcom,cam-vreg-name = "gdscr", "bimc_smmu";
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -104,12 +91,12 @@
 		reg = <0xc826000 0x1000>,
 				<0xca00128 0x4>;
 		reg-names = "csiphy", "csiphy_clk_mux";
-		interrupts = <0 80 0>;
+		interrupts = <0 80 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "csiphy";
 		gdscr-supply = <&gdsc_camss_top>;
 		bimc_smmu-supply = <&gdsc_bimc_smmu>;
 		qcom,cam-vreg-name = "gdscr", "bimc_smmu";
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -141,7 +128,7 @@
 		compatible = "qcom,csid-v5.0", "qcom,csid";
 		reg = <0xca30000 0x400>;
 		reg-names = "csid";
-		interrupts = <0 296 0>;
+		interrupts = <0 296 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "csid";
 		qcom,csi-vdd-voltage = <1200000>;
 		qcom,mipi-csi-vdd-supply = <&pm660_l1>;
@@ -152,7 +139,7 @@
 		qcom,cam-vreg-min-voltage = <925000 0 0>;
 		qcom,cam-vreg-max-voltage = <925000 0 0>;
 		qcom,cam-vreg-op-mode = <0 0 0>;
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -182,7 +169,7 @@
 		compatible = "qcom,csid-v5.0", "qcom,csid";
 		reg = <0xca30400 0x400>;
 		reg-names = "csid";
-		interrupts = <0 297 0>;
+		interrupts = <0 297 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "csid";
 		qcom,csi-vdd-voltage = <1200000>;
 		qcom,mipi-csi-vdd-supply = <&pm660_l1>;
@@ -193,7 +180,7 @@
 		qcom,cam-vreg-min-voltage = <925000 0 0>;
 		qcom,cam-vreg-max-voltage = <925000 0 0>;
 		qcom,cam-vreg-op-mode = <0 0 0>;
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -223,7 +210,7 @@
 		compatible = "qcom,csid-v5.0", "qcom,csid";
 		reg = <0xca30800 0x400>;
 		reg-names = "csid";
-		interrupts = <0 298 0>;
+		interrupts = <0 298 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "csid";
 		qcom,csi-vdd-voltage = <1200000>;
 		qcom,mipi-csi-vdd-supply = <&pm660_l1>;
@@ -234,7 +221,7 @@
 		qcom,cam-vreg-min-voltage = <925000 0 0>;
 		qcom,cam-vreg-max-voltage = <925000 0 0>;
 		qcom,cam-vreg-op-mode = <0 0 0>;
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -264,7 +251,7 @@
 		compatible = "qcom,csid-v5.0", "qcom,csid";
 		reg = <0xca30c00 0x400>;
 		reg-names = "csid";
-		interrupts = <0 299 0>;
+		interrupts = <0 299 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "csid";
 		qcom,csi-vdd-voltage = <1200000>;
 		qcom,mipi-csi-vdd-supply = <&pm660_l1>;
@@ -275,7 +262,7 @@
 		qcom,cam-vreg-min-voltage = <925000 0 0>;
 		qcom,cam-vreg-max-voltage = <925000 0 0>;
 		qcom,cam-vreg-op-mode = <0 0 0>;
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -302,6 +289,7 @@
 
 	qcom,cam_smmu {
 		compatible = "qcom,msm-cam-smmu";
+		qcom,iommu-dma-addr-pool = <0x00020000 0x78000000>;
 		status = "ok";
 
 		msm_cam_smmu_cb1 {
@@ -310,6 +298,7 @@
 					<&mmss_bimc_smmu 0xc01>,
 					<&mmss_bimc_smmu 0xc02>,
 					<&mmss_bimc_smmu 0xc03>;
+			iommu-cells = <1>;
 			label = "vfe";
 			qcom,scratch-buf-support;
 		};
@@ -317,18 +306,21 @@
 		msm_cam_smmu_cb2 {
 			compatible = "qcom,msm-cam-smmu-cb";
 			iommus = <&mmss_bimc_smmu 0xa00>;
+			iommu-cells = <1>;
 			label = "cpp";
 		};
 
 		msm_cam_smmu_cb4 {
 			compatible = "qcom,msm-cam-smmu-cb";
 			iommus = <&mmss_bimc_smmu 0x800>;
+			iommu-cells = <1>;
 			label = "jpeg_enc0";
 		};
 
 		msm_cam_smmu_cb5 {
 			compatible = "qcom,msm-cam-smmu-cb";
 			iommus = <&mmss_bimc_smmu 0x801>;
+			iommu-cells = <1>;
 			label = "jpeg_dma";
 		};
 	};
@@ -341,13 +333,13 @@
 			<0xca18000 0x3000>,
 			<0xc8c36D4 0x4>;
 		reg-names = "cpp", "cpp_vbif", "cpp_hw", "camss_cpp";
-		interrupts = <0 294 0>;
+		interrupts = <0 294 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "cpp";
 		smmu-vdd-supply = <&gdsc_bimc_smmu>;
 		camss-vdd-supply = <&gdsc_camss_top>;
 		vdd-supply = <&gdsc_cpp>;
 		qcom,vdd-names = "smmu-vdd", "camss-vdd", "vdd";
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_CAMSS_AHB_CLK>,
 			<&clock_mmss MMSS_CAMSS_TOP_AHB_CLK>,
@@ -424,7 +416,7 @@
 		reg = <0xca31000 0xc00>,
 			<0xca00020 0x4>;
 		reg-names = "ispif", "csi_clk_mux";
-		interrupts = <0 309 0>;
+		interrupts = <0 309 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "ispif";
 		qcom,num-isps = <0x2>;
 		camss-vdd-supply = <&gdsc_camss_top>;
@@ -433,7 +425,7 @@
 		qcom,vdd-names = "camss-vdd", "vfe0-vdd",
 				"vfe1-vdd";
 		qcom,clock-cntl-support;
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_CAMSS_AHB_CLK>,
 			<&clock_mmss MMSS_CAMSS_TOP_AHB_CLK>,
@@ -508,14 +500,14 @@
 		reg = <0xca10000 0x4000>,
 			<0xca40000 0x3000>;
 		reg-names = "vfe", "vfe_vbif";
-		interrupts = <0 314 0>;
+		interrupts = <0 314 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "vfe";
 		vdd-supply = <&gdsc_vfe0>;
 		camss-vdd-supply = <&gdsc_camss_top>;
 		smmu-vdd-supply = <&gdsc_bimc_smmu>;
 		qcom,vdd-names = "vdd", "camss-vdd", "smmu-vdd";
 		clocks = <&clock_mmss MMSS_THROTTLE_CAMSS_AXI_CLK>,
-			<&clock_rpmcc MMSSNOC_AXI_CLK>,
+			<&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -591,14 +583,14 @@
 		reg = <0xca14000 0x4000>,
 			<0xca40000 0x3000>;
 		reg-names = "vfe", "vfe_vbif";
-		interrupts = <0 315 0>;
+		interrupts = <0 315 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "vfe";
 		vdd-supply = <&gdsc_vfe1>;
 		camss-vdd-supply = <&gdsc_camss_top>;
 		smmu-vdd-supply = <&gdsc_bimc_smmu>;
 		qcom,vdd-names = "vdd", "camss-vdd", "smmu-vdd";
 		clocks = <&clock_mmss MMSS_THROTTLE_CAMSS_AXI_CLK>,
-			<&clock_rpmcc MMSSNOC_AXI_CLK>,
+			<&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -680,13 +672,13 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 		reg-names = "cci";
-		interrupts = <0 295 0>;
+		interrupts = <0 295 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "cci";
 		status = "ok";
 		mmagic-supply = <&gdsc_bimc_smmu>;
 		gdscr-supply = <&gdsc_camss_top>;
 		qcom,cam-vreg-name = "mmagic", "gdscr";
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -733,7 +725,7 @@
 		reg = <0xca1c000 0x4000>,
 			<0xca60000 0x3000>;
 		reg-names = "jpeg_hw", "jpeg_vbif";
-		interrupts = <0 316 0>;
+		interrupts = <0 316 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "jpeg";
 		smmu-vdd-supply = <&gdsc_bimc_smmu>;
 		camss-vdd-supply = <&gdsc_camss_top>;
@@ -747,7 +739,7 @@
 			"core_clk",
 			"mmss_camss_jpeg_ahb_clk",
 			"mmss_camss_jpeg_axi_clk";
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,
@@ -777,7 +769,7 @@
 		reg = <0xcaa0000 0x4000>,
 			<0xca60000 0x3000>;
 		reg-names = "jpeg_hw", "jpeg_vbif";
-		interrupts = <0 304 0>;
+		interrupts = <0 304 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "jpeg";
 		smmu-vdd-supply = <&gdsc_bimc_smmu>;
 		camss-vdd-supply = <&gdsc_camss_top>;
@@ -791,7 +783,7 @@
 			"core_clk",
 			"mmss_camss_jpeg_ahb_clk",
 			"mmss_camss_jpeg_axi_clk";
-		clocks = <&clock_rpmcc MMSSNOC_AXI_CLK>,
+		clocks = <&clock_rpmcc RPM_SMD_MMSSNOC_AXI_CLK>,
 			<&clock_mmss MMSS_MNOC_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AHB_CLK>,
 			<&clock_mmss MMSS_BIMC_SMMU_AXI_CLK>,

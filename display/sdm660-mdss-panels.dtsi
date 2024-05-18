@@ -1,3 +1,4 @@
+<<<<<<< HEAD:display/sdm660-mdss-panels.dtsi
 /* Copyright (c) 2016-2018, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -27,6 +28,25 @@
 #include "dsi-panel-rm67195-amoled-fhd-cmd.dtsi"
 #include "dsi-panel-lgd-incell-sw49106-fhd-video.dtsi"
 #include "dsi-panel-hx8399c-fhd-plus-video.dtsi"
+=======
+#include "../display/dsi-panel-sim-video.dtsi"
+#include "../display/dsi-panel-sim-dualmipi-video.dtsi"
+#include "../display/dsi-panel-nt35597-truly-dualmipi-wqxga-video.dtsi"
+#include "../display/dsi-panel-nt35597-truly-dualmipi-wqxga-cmd.dtsi"
+#include "../display/dsi-panel-nt36850-truly-dualmipi-wqhd-cmd.dtsi"
+#include "../display/dsi-panel-sharp-dualmipi-wqxga-video.dtsi"
+#include "../display/dsi-panel-nt35597-truly-dsc-wqxga-video.dtsi"
+#include "../display/dsi-panel-nt35597-truly-dsc-wqxga-cmd.dtsi"
+#include "../display/dsi-panel-nt35597-dualmipi-wqxga-video.dtsi"
+#include "../display/dsi-panel-nt35597-dualmipi-wqxga-cmd.dtsi"
+#include "../display/dsi-panel-nt35695b-truly-fhd-video.dtsi"
+#include "../display/dsi-panel-nt35695b-truly-fhd-cmd.dtsi"
+#include "../display/dsi-panel-truly-1080p-cmd.dtsi"
+#include "../display/dsi-panel-truly-1080p-video.dtsi"
+#include "../display/dsi-panel-rm67195-amoled-fhd-cmd.dtsi"
+#include "../display/dsi-panel-lgd-incell-sw49106-fhd-video.dtsi"
+#include "../display/dsi-panel-hx8399c-fhd-plus-video.dtsi"
+>>>>>>> 2fb6e3b (qcom-legacy: sdm660: Update dts from msm-4.19):sdm660/sdm660-mdss-panels.dtsi
 
 &soc {
 	dsi_panel_pwr_supply: dsi_panel_pwr_supply {
@@ -149,6 +169,9 @@
 		808302432 811656384>;
 	qcom,mdss-dsi-pan-enable-dynamic-fps;
 	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
+	qcom,mdss-dsi-tx-eot-append;
+	qcom,mdss-dsi-t-clk-post = <0x0d>;
+	qcom,mdss-dsi-t-clk-pre = <0x2d>;
 };
 
 &dsi_dual_nt35597_truly_cmd {
@@ -165,6 +188,10 @@
 	qcom,mdss-dsi-panel-on-check-value = <0x9c>;
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 	qcom,mdss-dsi-panel-max-error-count = <3>;
+	qcom,mdss-dsi-tx-eot-append;
+	qcom,mdss-dsi-t-clk-post = <0x0d>;
+	qcom,mdss-dsi-t-clk-pre = <0x2d>;
+	qcom,ulps-enabled;
 };
 
 &dsi_dual_nt36850_truly_cmd {
@@ -195,7 +222,6 @@
 		20 1d 05 07 03 03 04 a0
 		20 1d 05 07 03 03 04 a0
 		20 12 05 06 03 13 04 a0];
-	qcom,config-select = <&dsi_nt35597_truly_dsc_video_config2>;
 	qcom,mdss-dsi-min-refresh-rate = <53>;
 	qcom,mdss-dsi-max-refresh-rate = <60>;
 	qcom,mdss-dsi-pan-enable-dynamic-fps;
@@ -216,7 +242,6 @@
 		20 1d 05 07 03 03 04 a0
 		20 1d 05 07 03 03 04 a0
 		20 12 05 06 03 13 04 a0];
-	qcom,config-select = <&dsi_nt35597_truly_dsc_cmd_config2>;
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
 	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
