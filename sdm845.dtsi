@@ -5489,3 +5489,7 @@
 		};
 	};
 };
+
+&pm8998_clkdiv {
+	clocks = <&clock_rpmh RPMH_CXO_CLK>;
+};

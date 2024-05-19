@@ -172,7 +172,6 @@
 			qcom,num-clkdivs = <3>;
 			clock-output-names = "pm8998_div_clk1",
 						"pm8998_div_clk2", "pm8998_div_clk3";
-			clocks = <&clock_rpmh RPMH_CXO_CLK>;
 			clock-names = "xo";
 		};
 	};
