@@ -2935,9 +2935,8 @@
 	qcom,icnss@18800000 {
 		compatible = "qcom,icnss";
 		reg = <0x18800000 0x800000>,
-		      <0xa0000000 0x10000000>,
 		      <0xb0000000 0x10000>;
-		reg-names = "membase", "smmu_iova_base", "smmu_iova_ipa";
+		reg-names = "membase", "smmu_iova_ipa";
 		clocks = <&clock_rpmcc RPM_SMD_RF_CLK2_PIN>;
 		clock-names = "cxo_ref_clk_pin";
 		iommus = <&anoc2_smmu 0x1900>,
@@ -2954,6 +2953,10 @@
 			     <GIC_SPI 423 IRQ_TYPE_LEVEL_HIGH>,   /* CE9 */
 			     <GIC_SPI 424 IRQ_TYPE_LEVEL_HIGH>,   /* CE10 */
 			     <GIC_SPI 425 IRQ_TYPE_LEVEL_HIGH>;   /* CE11 */
+		qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
+		qcom,iommu-dma = "bypass";
+		qcom,iommu-faults = "stall-disable";
+		qcom,hyp_enabled;
 		qcom,wlan-msa-memory = <0x100000>;
 		vdd-cx-mx-supply = <&pm8998_l5>;
 		vdd-1.8-xo-supply = <&pm8998_l7_pin_ctrl>;
